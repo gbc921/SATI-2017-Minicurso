@@ -33,20 +33,39 @@
 					<section>
 						<h3>O que é Dynatrace AppMon?</h3>
 						<ul>
-							<li>Basicamente o Dynatrace AppMon é uma ferramenta de monitoração APM/DPM;<br>utilizada para gerenciamento de performance e experiência de usuários em aplicações de várias cores e sabores</li>
-							<li class="fragment">Vamos utilizá-la aqui para realizar algo bem mais simples: Identificar bugs nos programas de exemplo</li>
+							<li>Basicamente o Dynatrace AppMon é uma ferramenta de monitoração APM/DPM</li>
+							<ul>
+								<li class="fragment">Utilizada para gerenciamento de performance e experiência de usuários em aplicações de várias cores e sabores</li>
+							</ul>
 						</ul> 
 					</section>
 					<section>
-						<p>O intuito é mostrar o básico para se replicar com outras aplicações criadas aqui dentro da Universidade</p>
+						<ul>
+							<li>Vamos utilizá-la aqui para realizar algo bem mais simples: Identificar bugs nos programas exemplo</li>
+						</ul>
+							<p class="fragment"><img src="img/bugs-everywhere.png" alt="Bugs Everywhere" ></p>
+						<ul>
+							<li class="fragment">O intuito é mostrar o básico para se replicar com outras aplicações criadas aqui dentro da Universidade</li>
+						</ul> 
 					</section>
 				</section>
 				<section>
-					<h3>Fazendo o Download</h3>
+					<h3>Procedimentos Iniciais</h3>
 					<ol>
 						<li>Peça a licença gratuita aqui:<br><a target="_blank" href="https://www.dynatrace.com/trial/appmon/">https://www.dynatrace.com/trial/appmon/</a></li>
-						<li>Faça o download do Dynatrace AppMon (de acordo com sua plataforma):<br><a target="_blank" href="https://community.dynatrace.com/community/pages/viewpage.action?title=Step+1+-+Download+and+install+Dynatrace&spaceKey=EVAL">https://community.dynatrace.com/community/pages/viewpage.action?title=Step+1+-+Download+and+install+Dynatrace&spaceKey=EVAL</li>
+						<li>Faça o download do Dynatrace AppMon (de acordo com sua plataforma):<br><a target="_blank" href="https://community.dynatrace.com/community/pages/viewpage.action?title=Step+1+-+Download+and+install+Dynatrace&spaceKey=EVAL">https://community.dynatrace.com/community/pages/viewpage.action?title=Step+1+-+Download+and+install+Dynatrace&spaceKey=EVAL</a></li>
+						<li>Realize a instalação;</li>
+						<li>Importe e ative a licença;</li>
+						<li>Inicie os processos: Server + Collector:
+					</ol>
+						<pre><code class="hljs" style="word-wrap: break-word;">~/<diretorio-instalacao>/init.d/dynaTraceServer start && ~/<diretorio-instalacao>/init.d/dynaTraceCollector start</code></pre>
+						<pre><code class="hljs" style="word-wrap: break-word;">~/dynatrace-7.0/init.d/dynaTraceServer start && ~/dynatrace-7.0/init.d/dynaTraceCollector start</code></pre>
+					<ol start=6>
+						<li>Inicie o Client (trocando o diretório de instalação caso não seja o padrão):
+						<pre><code class="hljs" style="word-wrap: break-word;">~/dynatrace-7.0/dtclient</code></pre>
 					</ol> 
+				</section>
+				<section>
 				</section>
 			</div>
 		</div>
@@ -59,6 +78,8 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				history: true,
+
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },

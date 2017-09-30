@@ -60,12 +60,15 @@
 					</ol>
 						<pre><code class="hljs" style="word-wrap: break-word;">~/<diretorio-instalacao>/init.d/dynaTraceServer start && ~/<diretorio-instalacao>/init.d/dynaTraceCollector start</code></pre>
 						<pre><code class="hljs" style="word-wrap: break-word;">~/dynatrace-7.0/init.d/dynaTraceServer start && ~/dynatrace-7.0/init.d/dynaTraceCollector start</code></pre>
+				</section>
+				<section>
 					<ol start=6>
 						<li>Inicie o Client (trocando o diretório de instalação caso não seja o padrão):
 						<pre><code class="hljs" style="word-wrap: break-word;">~/dynatrace-7.0/dtclient</code></pre>
-					</ol> 
-				</section>
-				<section>
+						<li>Aceite a conexão padrão;</li>
+						<li>Importe a licença do arquivo seguindo o wizard;</li>
+						<li>Restarte o server;</li>
+					</ol>
 				</section>
 			</div>
 		</div>
@@ -79,6 +82,7 @@
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				history: true,
+				slideNumber: true,
 
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },

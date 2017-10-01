@@ -20,6 +20,10 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<style>
+			/* Ordered List with letters (used for sub-items) */
+			ol.alphaList {list-style-type: lower-alpha;}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -138,6 +142,86 @@
 					</section>                                              
 					<section>                                               
 						<img src="img/appmon/17-appmon-systemprofile-userexperience.png" width="80%" height="80%" alt="" >
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Instrumentando o Tomcat:</h3>
+						<h4>Reconhecendo as transações pelo AppMon</h4>
+						<ul>
+							<li>Tomcat 6:</li>
+							<ol>
+								<li>Open the <code>catalina.sh</code> script in your Tomcat installation. By default, this file should be located in the <code>&ltTOMCAT_HOME&gt/bin</code> folder.</li>
+								<li>Add the <code>CATALINA_OPTS</code> variable and set it to <br><code>-agentpath:&ltDT_HOME&gt/agent/lib/libdtagent.so=name=&ltAgentName&gt,server=&ltCollectorName&gt</code><br> as shown in highlighted text below.</li>
+							</ol>
+							<pre><code data-trim data-noescape>
+...
+#
+# $Id: catalina.sh 609438 2008-01-06 22:14:28Z markt $
+# -----------------------------------------------------------------------------
+export CATALINA_OPTS={dtagentstring_unix}
+# OS specific support.  $var must be set to either true or false.
+							</code></pre>
+						</ul>
+					</section>
+					<section>
+						<h3>Instrumentando o Tomcat:</h3>
+						<h4>Reconhecendo as transações pelo AppMon</h4>
+						<ul>
+							<li>Tomcat 6 - Exemplo de configuração do agentpath:</li>
+						</ul>
+						<pre><code data-trim data-noescape>
+...
+#
+# $Id: catalina.sh 609438 2008-01-06 22:14:28Z markt $
+# -----------------------------------------------------------------------------
+export CATALINA_OPTS=-agentpath:~/dynatrace-7.0/agent/lib/libdtagent.so=name=Tomcat_Monitoring,server=127.0.0.1
+# OS specific support.  $var must be set to either true or false.
+						</code></pre>
+						<ul>
+							<li>Posteriormente, inicie/reinicie o Tomcat;</li>
+							<li>Para outros exemplos/situações, consulte a documentação:<br><a target="_blank" href="https://www.dynatrace.com/support/doc/appmon/installation/application-integration/apache-tomcat/">https://www.dynatrace.com/support/doc/appmon/installation/application-integration/apache-tomcat/</a></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Instrumentando o Tomcat:</h3>
+						<h4>Reconhecendo as transações pelo AppMon</h4>
+						<ul>
+							<li>Tomcat 7 or later:</li>
+							<p>It is recommend to configure environment variables in the <code>setenv.bat</code> or <code>setenv.sh</code> script located in <code>CATALINA_BASE/bin</code> or <code>CATALINA_HOME/bin</code>. This file is not typically found in a default Tomcat-only installation and must be created manually, co-located with startup, (in <code>bin</code>)</p>
+							<ol>
+								<li>On a 64-bit Ubuntu and a Tomcat 7 package installed with <code>sudo apt-get install tomcat7</code>, create <code>setenv.sh</code> in <code>CATALINA_HOME/bin</code> containing:</li>
+							</ol>
+						</ul>
+					</section>
+					<section>
+						<h3>Instrumentando o Tomcat:</h3>
+						<h4>Reconhecendo as transações pelo AppMon</h4>
+						<ul>
+							<li>Tomcat 7 or later:</li>
+							<pre><code data-trim data-noescape>
+							export CATALINA_OPTS="-agentpath:&ltDT_HOME&gt/agent/lib/libdtagent.so=name=&ltAgentName&gt,server=&ltCollectorName&gt"
+							</code></pre>
+							<li>Exemplo:</li>
+							<pre><code data-trim data-noescape>
+							export CATALINA_OPTS="-agentpath:~/dynatrace-7.0/agent/lib/libdtagent.so=name=Tomcat_Monitoring,server=127.0.0.1"
+							</code></pre>
+							<li>Posteriormente, inicie/reinicie o Tomcat;</li>
+							<li>Para outros exemplos/situações, consulte a documentação:<br><a target="_blank" href="https://www.dynatrace.com/support/doc/appmon/installation/application-integration/apache-tomcat/">https://www.dynatrace.com/support/doc/appmon/installation/application-integration/apache-tomcat/</a></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Verificando o agente no AppMon</h3>
+						<img src="img/appmon/18-appmon-agents.png" width="75%" height="75%" alt="" >
+					</section>
+					<section style="font-size: 25px">
+						<h3>Verificando as transações no AppMon</h3>
+						<ul>
+							<li>Acesse a página do <i>Web Application Manager</i> para gerar transações: <a target="_blank" href="http://127.0.0.1:8080/manager/html">http://127.0.0.1:8080/manager/html</a></li>
+							<ul><li><a target="_blank" href="https://wiki.archlinux.org/index.php/tomcat#Initial_configuration">Talvez seja necessário editar a configurações de usuários do Tomcat</a></li></ul>
+							<li>Depois, abra o dashlet de PurePaths no AppMon:</li>
+						</ul>
+						<img src="img/appmon/19-appmon-purepath-tomcatmanager.png" width="85%" height="85%" alt="" >
 					</section>
 				</section>
 			</div>

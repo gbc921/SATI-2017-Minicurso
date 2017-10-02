@@ -264,6 +264,42 @@ export CATALINA_OPTS=-agentpath:~/dynatrace-7.0/agent/lib/libdtagent.so=name=Tom
 						<img src="img/great-success.jpg" alt="" >
 					</section>
 				</section>
+				<section>
+					<section>
+						<h3>Testando aplicação exemplo 2:</h3>
+						<p><i><a target="_blank" href="http://www.codejava.net/frameworks/spring/spring-4-and-hibernate-4-integration-tutorial-part-1-xml-configuration">Spring MVC Hibernate XML</a></i></p>
+						<ol>
+							<li>Faça o download do programa de exemplo <a target="_blank" href="programas/SpringMvcHibernateXML.tar">por aqui</a>;</li>
+							<li>Edite o arquivo dentro dos dois pacotes, <i>.war</i>,<code>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</code> para se adequar as conexões/usuário/senha do bando de dados;</li>
+							<ul><li><a target="_blank" href="https://maven.apache.org/plugins/maven-war-plugin/usage.html">Apenas como curiosidade, esse projeto pode ser compilado com o maven para gerar um novo<i>.war</i></a></li></ul>
+							<li>Faça o deploy do dois wars no Tomcat</li>
+							<li>Acesse a aplicação: <a target="_blank" href="http://127.0.0.1:8080/SpringMvcHibernateXML-1.0.0-BUILD-SNAPSHOT-erro">http://127.0.0.1:8080/SpringMvcHibernateXML-1.0.0-BUILD-SNAPSHOT-erro</a>;</li>
+							<li>Espere 1 minuto, <a href="#/purepath">volte ao dashlet de PurePath no AppMon</a>, aperte F5 e clique na transação;</li>
+							<li>Qual o erro encontrado?</li>
+						</ol>
+					</section>
+					<section>
+						<h3>Testando aplicação exemplo 2</h3>
+						<img src="img/appmon/22-appmon-purepath-springmvchibernate-erro.png" width="95%" height="95%" alt="" >
+					</section>
+					<section>
+						<h3>Testando aplicação exemplo 2</h3>
+						<p>Sem erro:</p>
+						<ol>
+							<li>Acesse a aplicação sem erro: <a target="_blank" href="http://127.0.0.1:8080/SpringMvcHibernateXML-1.0.0-BUILD-SNAPSHOT-sucesso">http://127.0.0.1:8080/SpringMvcHibernateXML-1.0.0-BUILD-SNAPSHOT-sucesso</a>;</li>
+							<li>Espere 1 minuto, <a href="#/purepath">volte ao dashlet de PurePath no AppMon</a>, aperte F5 e clique na transação;</li>
+							<li>O erro foi solucionado?</li>
+						</ol>
+					</section>
+					<section data-autoslide="3000" data-transition="convave">
+						<h3>Testando aplicação exemplo 2</h3>
+						<img src="img/appmon/23-appmon-purepath-springmvchibernate-sucesso.png" width="95%" height="95%" alt="" >
+					</section>
+					<section>
+						<h3>Testando aplicação exemplo 2</h3>
+						<img src="img/fred-sucess.jpg" alt="" >
+					</section>
+				</section>
 			</div>
 		</div>
 

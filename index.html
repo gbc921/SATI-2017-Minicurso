@@ -38,7 +38,7 @@
 					<ol>
 						<li>Instalar o Dynatrace AppMon;</li>
 						<li>Monitorar o Tomcat (e configurar o AppMon para isso);</li>
-						<li>Deployar duas aplicações exemplos e encontrar os erros;</li>
+						<li>Deployar duas aplicações exemplos utilizando Hibernate e MySQL/MariaDB e encontrar os erros;</li>
 						<li>Intervalo;</li>
 						<li>Conheçendo uma aplicação para simulação de um ecommerce.</li>
 					</ol>
@@ -214,7 +214,7 @@ export CATALINA_OPTS=-agentpath:~/dynatrace-7.0/agent/lib/libdtagent.so=name=Tom
 						<h3>Verificando o agente no AppMon</h3>
 						<img src="img/appmon/18-appmon-agents.png" width="75%" height="75%" alt="" >
 					</section>
-					<section style="font-size: 25px">
+					<section style="font-size: 25px" id="purepath">
 						<h3>Verificando as transações no AppMon</h3>
 						<ul>
 							<li>Acesse a página do <i>Web Application Manager</i> para gerar transações: <a target="_blank" href="http://127.0.0.1:8080/manager/html">http://127.0.0.1:8080/manager/html</a></li>
@@ -222,6 +222,46 @@ export CATALINA_OPTS=-agentpath:~/dynatrace-7.0/agent/lib/libdtagent.so=name=Tom
 							<li>Depois, abra o dashlet de PurePaths no AppMon:</li>
 						</ul>
 						<img src="img/appmon/19-appmon-purepath-tomcatmanager.png" width="85%" height="85%" alt="" >
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Testando aplicação exemplo 1:</h3>
+						<p><i><a target="_blank" href="http://www.javawebtutor.com/articles/hibernate/hibernate_web_example.php">Hibernate Web App - JavaWebTutor</a></i></p>
+						<ol>
+							<li>Faça o download do programa de exemplo <a target="_blank" href="programas/HibernateWebApp-webtutor.tar">por aqui</a>;</li>
+							<li>Importe o projeto no Eclipse;</li>
+							<li>Edite o arquivo <code>src/hibernate.cfg.xml</code> para se adequar as conexões/usuário/senha do bando de dados;</li>
+							<li><a target="_blank" href="https://stackoverflow.com/a/5108057/1353689">Exporte o <i>.war</i> do projeto</a></li>
+							<ul><li>Talvez seja necessário o plugin "Java EE Developer Tools"</li></ul>
+							<li>Faça o deploy do war no Tomcat</li>
+							<li>Acesse a aplicação: <a target="_blank" href="http://127.0.0.1:8080/HibernateWebApp">http://127.0.0.1:8080/HibernateWebApp</a>;</li>
+							<li>Espere 1 minuto, <a href="#/purepath">volte ao dashlet de PurePath no AppMon</a>, aperte F5 e clique na transação;</li>
+							<li>Qual o erro encontrado?</li>
+
+						</ol>
+					</section>
+					<section>
+						<h3>Testando aplicação exemplo 1</h3>
+						<img src="img/appmon/20-appmon-purepath-hibernatewebapp-erro.png" width="95%" height="95%" alt="" >
+					</section>
+					<section>
+						<h3>Testando aplicação exemplo 1</h3>
+						<p>Corrigindo o erro:</p>
+						<ol>
+							<li>Execute o script <code>db.sql</code> dentro do projeto (Ele irá criar a database <i>jwt</i> no banco;</li>
+							<li>Acesse a aplicação novamente: <a target="_blank" href="http://127.0.0.1:8080/HibernateWebApp">http://127.0.0.1:8080/HibernateWebApp</a>;</li>
+							<li>Espere 1 minuto, <a href="#/purepath">volte ao dashlet de PurePath no AppMon</a>, aperte F5 e clique na transação;</li>
+							<li>O erro foi solucionado?</li>
+						</ol>
+					</section>
+					<section data-autoslide="3000" data-transition="convave">
+						<h3>Testando aplicação exemplo 1</h3>
+						<img src="img/appmon/21-appmon-purepath-hibernatewebapp-sucesso.png" width="95%" height="95%" alt="" >
+					</section>
+					<section>
+						<h3>Testando aplicação exemplo 1</h3>
+						<img src="img/great-success.jpg" alt="" >
 					</section>
 				</section>
 			</div>
